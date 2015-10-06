@@ -36,7 +36,9 @@ var ex005 = function() {
 
 	// ------------ INSERT CODE HERE! -----------------------------------
 	// Use map function to accumulate {id, title} pairs from each video.
-	return newReleases.map( rel => { return { id: rel.id, title: rel.title } } ); // finish this expression!
+	return newReleases.map( rel => { 
+		return { id: rel.id, title: rel.title } 
+	}); // finish this expression!
 	// ------------ INSERT CODE HERE! -----------------------------------
 
 }
