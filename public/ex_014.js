@@ -1,4 +1,4 @@
-var ex012 = function() {
+var ex014 = function() {
 	var movieLists = [
 			{
 				name: "Instant Queue",
@@ -59,7 +59,7 @@ var ex012 = function() {
 		];
 
 
-	// Use one or more map, concatAll, and filter calls to create an array with the following items
+	// Use one or more concatMap, map, and filter calls to create an array with the following items
 	// [
 	//	 {"id": 675465,"title": "Fracture","boxart":"http://cdn-0.nflximg.com/images/2891/Fracture150.jpg" },
 	//	 {"id": 65432445,"title": "The Chamber","boxart":"http://cdn-0.nflximg.com/images/2891/TheChamber150.jpg" },
@@ -67,26 +67,13 @@ var ex012 = function() {
 	//	 {"id": 70111470,"title": "Die Hard","boxart":"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" }
 	// ];
 
-	return movieLists.map(list => {
-		return list.videos.map(video => {
-			return video.boxarts.filter(boxart => {
-				return boxart.width == 150
-			}).map(boxart => { return { id: video.id, title: video.title, boxart: boxart.url } })
-		}).concatAll();
-	}).concatAll();
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 // Complete this expression!
+	return movieLists.concatMap(movie => {
+		return movie.videos.concatMap(video => {
+			return video.boxarts.filter(boxart => { return boxart.width === 150; }).map(boxart => { 
+				return { id: video.id, title: video.title, boxart: boxart.url }
+			});
+		});
+	}); // Complete this expression!
 
 }
+		
