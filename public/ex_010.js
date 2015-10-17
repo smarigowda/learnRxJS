@@ -1,6 +1,6 @@
 Array.prototype.concatAll = function() {
 	var results = [];
-	this.forEach((subArray) => {
+	this.forEach( subArray => {
 		// ------------ INSERT CODE HERE! ----------------------------
 		// Add all the items in each subArray to the results array.
 		// ------------ INSERT CODE HERE! ----------------------------
@@ -9,10 +9,8 @@ Array.prototype.concatAll = function() {
 		
 		subArray.forEach( ele => { 
 			results.push(ele);
-
 		});
 	});
-
 	return results;
 };
 

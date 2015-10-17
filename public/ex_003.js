@@ -42,10 +42,14 @@ var ex003 = function () {
 	// push() method. Example: videoAndTitlePairs.push(newItem);
 	// ------------ INSERT CODE HERE! -----------------------------------
 
-	newReleases.forEach(rel => { 
-		videoAndTitlePairs.push({ id: rel.id, title: rel.title }); 
+	newReleases.forEach( rel => {
+		videoAndTitlePairs.push( { id: rel.id, title: rel.title } );
 	});
 
 	return videoAndTitlePairs;
+
+
+
+	// mapped to devtools workspace
 }
 		

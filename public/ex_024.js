@@ -76,16 +76,18 @@ var ex024 = function() {
 
 	//------------ COMPLETE THIS EXPRESSION --------------
 
-	var boxartsReduction = (acc, curr) => {  return acc.width * acc.height < curr.width * curr.height ? acc : curr }
-	var interistingMomentsFilter = moments => { return moments.type == "Middle" }
+	var boxartsReductionFunc = (acc, curr) => {  return acc.width * acc.height < curr.width * curr.height ? acc : curr }
+	var interistingMomentsFilterFunc = moments => { return moments.type == "Middle" }
 	
 
 	return movieLists.concatMap( movieList => { 
 			return movieList.videos.concatMap( video => {
-				var zip = (boxart, interestingMoment) => { 
+
+				var zipFunc = (boxart, interestingMoment) => { 
 					return { id: video.id, title: video.title, time: interestingMoment.time, url: boxart.url } 
 				}
-				return Array.zip(video.boxarts.reduce(boxartsReduction), video.interestingMoments.filter(interistingMomentsFilter), zip)
+				
+				return Array.zip(video.boxarts.reduce(boxartsReductionFunc), video.interestingMoments.filter(interistingMomentsFilterFunc), zipFunc) // access to video via closure
 			});
 	});
 

@@ -9,7 +9,7 @@ var ex015 = function() {
 		maxSize = -1,
 		largestBoxart;
 
-	boxarts.forEach(function(boxart) {
+	boxarts.forEach( boxart => {
 		currentSize = boxart.width * boxart.height;
 		if (currentSize > maxSize) {
 			largestBoxart = boxart;

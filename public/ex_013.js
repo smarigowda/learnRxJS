@@ -1,9 +1,8 @@
 Array.prototype.concatMap = function concatMap(projectionFunctionThatReturnsArray) {
-	return 	this.map(function(item) {
+	return this.map( item => {
 				return projectionFunctionThatReturnsArray(item);
 			}).concatAll();
 		// apply the concatAll function to flatten the two-dimensional array
-		
 };
 
 /*

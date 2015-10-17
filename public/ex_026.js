@@ -49,39 +49,38 @@ var ex026 = function() {
 			{ videoId: 654356453, time: 984934 }
 		];
 
-	return lists.map(list => {
+	return lists.map( list => {
 
-		var videoFilter = (video) => {
+		var videoFilter = video => {
 			return video.listId === list.id;
 		}
 		
 		return {
 			name: list.name,
-			videos: videos.filter(videoFilter).concatMap(video => { // map and zip,  2D array
+			videos: videos.filter(videoFilter).concatMap( video => { // map and zip produces a 2D array
 				
-				var boxartReducerFunction = (acc, curr) => { return acc.width * acc.height < curr.width * curr.height ? acc : curr }
+				var boxartReduceFunc = (acc, curr) => {
+					return acc.width * acc.height < curr.width * curr.height ? acc : curr
+				}
 
 				// reduces to one boxart object
-				var boxartFunction = boxarts.filter(boxart => {
+				var boxartFilterFunc = boxarts.filter( boxart => {
 					return boxart.videoId === video.id;
-				}).reduce((acc, curr) => { return boxartReducerFunction(acc, curr); });
+				}).reduce((acc, curr) => { return boxartReduceFunc(acc, curr); });
 
 				// assuming there is one bookmark for each video
-				var bookmarkFunction = bookmarks.filter(bookmark => { 
+				var bookmarkFilterFunc = bookmarks.filter( bookmark => { 
 					return bookmark.videoId === video.id;
 				})
 
 				// now combine all three objects
-				var zipperFunction = (left, right) => {
+				var bookmarkBoxartZipFunc = (left, right) => {
 					return { id: video.id, title: video.title, time: left.time, boxart: right.url }
 				}
 
-				return Array.zip(bookmarkFunction, boxartFunction, zipperFunction)
+				return Array.zip(bookmarkFilterFunc, boxartFilterFunc, bookmarkBoxartZipFunc);
 			})
-
 		}
 	})
-
-	 // complete this expression
 }
 		

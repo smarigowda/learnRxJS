@@ -37,14 +37,11 @@ var ex008 = function() {
 	// ------------ INSERT CODE HERE! -----------------------------------
 	// Chain the filter and map functions to select the id of all videos
 	// with a rating of 5.0.
-
-	return newReleases.filter( rel => { 
+	return newReleases.filter(rel => { 
 		return rel.rating === 5.0
 	}).map(rel => { 
 		return { id: rel.id, title: rel.title }
 	});
-
 	// return newReleasesFiltered // Complete this expression
 	// ------------ INSERT CODE HERE! -----------------------------------
 }
-		

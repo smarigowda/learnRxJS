@@ -71,22 +71,7 @@ var ex012 = function() {
 		return list.videos.map(video => {
 			return video.boxarts.filter(boxart => {
 				return boxart.width == 150
-			}).map(boxart => { return { id: video.id, title: video.title, boxart: boxart.url } })
+			}).map( boxart => { return { id: video.id, title: video.title, boxart: boxart.url } })
 		}).concatAll();
 	}).concatAll();
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 // Complete this expression!
-
 }

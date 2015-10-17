@@ -46,13 +46,14 @@ var ex011 = function() {
 
 	// ------------   INSERT CODE HERE!  -----------------------------------
 	// Use map and concatAll to flatten the movieLists in a list of video ids.
+	// map inside a map creates an array of arrays [ [] [] [] [] ]
 	// ------------   INSERT CODE HERE!  -----------------------------------
 
 	return movieLists.map( movie => {
 		return movie.videos.map( video => {
 			return video.id;
 		});
-	}).concatAll();
+	}).concatAll(); // map in a map returns an array of arrays
 
 	// Complete this expression!
 

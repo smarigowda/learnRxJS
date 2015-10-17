@@ -8,14 +8,14 @@ var ex018 = function() {
 
 	// You should return an array containing only the URL of the largest box art. Remember that reduce always
 	// returns an array with one item.
-	return boxarts.reduce((acc, curr) => {
+	return boxarts.reduce( (acc, curr) => {
 		if ( acc.width * acc.height > curr.width * curr.height ) {
 			return acc;
 		} else {
 			return curr;
 		}
-	}).map(boxart => {
+	}).map( boxart => {
 		return boxart.url;
-	})   // Complete this expression
+	})
 }
 		
