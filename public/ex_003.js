@@ -44,6 +44,7 @@ var ex003 = function () {
 
 	newReleases.forEach( rel => {
 		videoAndTitlePairs.push( { id: rel.id, title: rel.title } );
+// 		debugger;
 	});
 
 	return videoAndTitlePairs;
