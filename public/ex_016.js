@@ -3,7 +3,7 @@
 
 Array.prototype.reduce = function(combiner, initialValue) {
 	var counter,
-		accumulatedValue;
+		accValue;
 
 	// If the array is empty, do nothing
 	if (this.length === 0) {
@@ -13,11 +13,11 @@ Array.prototype.reduce = function(combiner, initialValue) {
 		// If the user didn't pass an initial value, use the first item.
 		if (arguments.length === 1) {
 			counter = 1;
-			accumulatedValue = this[0];
+			accValue = this[0];
 		}
 		else if (arguments.length >= 2) {
 			counter = 0;
-			accumulatedValue = initialValue;
+			accValue = initialValue;
 		}
 		else {
 			throw "Invalid arguments.";
@@ -27,10 +27,10 @@ Array.prototype.reduce = function(combiner, initialValue) {
 		// the previous computation back into the combiner function until
 		// we've exhausted the entire array and are left with only one value.
 		while(counter < this.length) {
-			accumulatedValue = combiner(accumulatedValue, this[counter])
+			accValue = combiner(accValue, this[counter])
 			counter++;
 		}
 
-		return [accumulatedValue];
+		return [accValue];
 	}
 };

@@ -69,15 +69,17 @@ var ex012 = function() {
 
 	return movieLists.map( list => {
 			return list.videos.map( video => {
-					return video.boxarts.filter( boxart => {
-							return boxart.width == 150
-					}).map( boxart => {
-							return { 	
-								id: video.id, 
-								title: video.title, 
-								boxart: boxart.url
-							}
-					})
+					return video.boxarts.
+						filter( boxart => {
+								return boxart.width == 150
+						}).
+						map( boxart => {
+								return { 	
+									id: video.id, 
+									title: video.title, 
+									boxart: boxart.url
+								}
+						})
 			}).concatAll();
 	}).concatAll();
 }
