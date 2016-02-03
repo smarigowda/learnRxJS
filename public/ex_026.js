@@ -74,11 +74,11 @@ var ex026 = function() {
 				})
 
 				// now combine all three objects
-				var bookmarkBoxartZipFunc = (left, right) => {
+				var ZipFunc = (left, right) => {
 					return { id: video.id, title: video.title, time: left.time, boxart: right.url }
 				}
 
-				return Array.zip(bookmarkFilterFunc, boxartFilterFunc, bookmarkBoxartZipFunc);
+				return Array.zip(bookmarkFilterFunc, boxartFilterFunc, ZipFunc);
 			})
 		}
 	})

@@ -4,6 +4,7 @@ html
 		title!= title
 	body
 		h1!= message
+		script(src="bower_components/jquery/dist/jquery.min.js")
 		script(src="rx.all.js")
 		script(src="ex_003.js")
 		script(src="ex_004.js")
@@ -29,7 +30,10 @@ html
 		script(src="ex_024.js")
 		script(src="ex_025.js")
 		script(src="ex_026.js")
+		script(src="ex_028.js")
 		h2.
 			Powered by Express...Learn RxJS
 		p.
 			Jade template engine
+		button(id="clickme").
+			click me...

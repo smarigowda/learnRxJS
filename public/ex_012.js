@@ -69,15 +69,19 @@ var ex012 = function() {
 	//	 {"id": 70111470,"title": "Die Hard","boxart":"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" }
 	// ];
 
-	return movieLists.map(movie => {
-		return movie.videos.map(video => {
-			return video.boxarts.filter(boxart => {
-				return boxart.width == 150;
-				// note that the next map operation is on the filtered boxarts array
-			}).map(filteredboxart => { 
-				// console.log(filteredboxart);
-				return { id: video.id, title: video.title, boxart: filteredboxart.url } 
-			})
-		}).concatAll();
-	}).concatAll();
+	return movieLists.map( list => {
+			return list.videos.map( video => {
+					return video.boxarts.
+						filter( boxart => {
+								return boxart.width == 150
+						}).
+						map( boxart => {
+								return { 	
+									id: video.id, 
+									title: video.title, 
+									boxart: boxart.url
+								}
+						})
+			}).concatAll();
+
 }

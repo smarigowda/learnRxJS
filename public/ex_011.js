@@ -53,6 +53,8 @@ var ex011 = function() {
 		return movie.videos.map( video => {
 			return video.id;
 		});
-	}).concatAll(); // map in a map returns an array of arrays, concatAll flattens it
-
+	}).concatAll(); 
+	// map in a map returns an array of arrays
+	// its key to be comfortable in handling nested arrays and nested observables
+	// and use the right flattening strategies to transform from two dimension to one dimension
 }

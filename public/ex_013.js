@@ -1,3 +1,4 @@
+
 Array.prototype.concatMap = function concatMap(projectionFunctionThatReturnsArray) {
 	return this.map( item => {
 				return projectionFunctionThatReturnsArray(item);
