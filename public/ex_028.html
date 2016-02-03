@@ -1,0 +1,34 @@
+<html>
+
+<head> </head>
+
+<body>
+
+	<button id='clickme'>Click Me</button>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.7/rx.all.js"></script>
+
+<script>
+
+var onloadFunc = function (button) {
+	
+	var handler = function(ev) {
+		button.removeEventListener('click', handler)
+		alert('button was clicked, unsubscribing from event')
+	}
+
+	button.addEventListener('click', handler)
+}
+
+console.log('hello....')
+
+window.onload = () => { 
+	console.log('loaded...')
+	onloadFunc(document.getElementById('clickme'))
+}
+
+</script>
+
+</html>

@@ -7,7 +7,7 @@ Array.prototype.concatAll = function() {
 
 		// results.push.apply(results, subArray);
 		
-		subArray.forEach( ele => { 
+		subArray.forEach( ele => {
 			results.push(ele);
 		});
 	});

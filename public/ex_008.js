@@ -40,7 +40,7 @@ var ex008 = function() {
 	return newReleases.filter(rel => { 
 		return rel.rating === 5.0
 	}).map(rel => { 
-		return { id: rel.id, title: rel.title }
+		return { id: rel.id, title: rel.title, rating: rel.rating }
 	});
 	// return newReleasesFiltered // Complete this expression
 	// ------------ INSERT CODE HERE! -----------------------------------

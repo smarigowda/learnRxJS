@@ -53,8 +53,6 @@ var ex011 = function() {
 		return movie.videos.map( video => {
 			return video.id;
 		});
-	}).concatAll(); // map in a map returns an array of arrays
-
-	// Complete this expression!
+	}).concatAll(); // map in a map returns an array of arrays, concatAll flattens it
 
 }
