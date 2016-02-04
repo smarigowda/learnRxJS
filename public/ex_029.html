@@ -1,6 +1,5 @@
 <html>
-<head> </head>
-
+<head></head>
 <body>
 	<button id='clickme'>Click Me</button>
 </body>
@@ -9,14 +8,16 @@
 
 <script>
 
+// traversing an event
+
 var onloadFunc = function (button) {
+	
+	var buttonClicks = Rx.Observable.fromEvent(button, 'click')
 
-	var handler = function(ev) {
-		button.removeEventListener('click', handler)
-		alert('button was clicked, unsubscribing from event')
-	}
-
-	button.addEventListener('click', handler)
+	var subscription = buttonClicks.forEach((click) => {
+		alert('button clicked, stopping traversal')
+		subscription.dispose()
+	})
 }
 
 console.log('hello....')

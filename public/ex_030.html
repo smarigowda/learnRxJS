@@ -1,0 +1,38 @@
+<html>
+
+<head> </head>
+
+<body>
+
+	<button id='clickme'>Click Me</button>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.7/rx.all.js"></script>
+
+<script>
+
+// traversing an event
+
+var onloadFunc = function (button) {
+	
+	var buttonClicks = Rx.Observable.fromEvent(button, 'click')
+
+	// var subscription // not required now !
+				buttonClicks
+						.take(1)
+						.forEach(click => {
+							alert('button clicked, stopping traversal after 1 click')
+						})
+}
+
+console.log('hello....ex_030')
+
+window.onload = () => { 
+	console.log('loaded...')
+	onloadFunc(document.getElementById('clickme'))
+}
+
+</script>
+
+</html>

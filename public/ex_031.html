@@ -1,0 +1,39 @@
+<html>
+
+<head> </head>
+
+<body>
+	<button id='clickme'>Click Me</button>
+	<button id='stopclickme'>Stop Click Me</button>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.7/rx.all.js"></script>
+
+<script>
+
+// demo of takeuntil
+// listen to button clicks until the stop button is clicked
+
+var onloadFunc = function (clickme, stopclickme) {
+	
+	var buttonClickMe = Rx.Observable.fromEvent(clickme, 'click')
+	var buttonStopClickMe = Rx.Observable.fromEvent(stopclickme, 'click')
+
+	// var subscription // not required now !
+				buttonClickMe
+						.takeUntil(buttonStopClickMe)
+						.forEach(click => {
+							alert('button clicked, click the other button to stop traversal')
+						})
+}
+
+console.log('hello....ex_031')
+
+window.onload = () => { 
+	console.log('loaded...')
+	onloadFunc(document.getElementById('clickme'), document.getElementById('stopclickme'))
+}
+
+</script>
+
+</html>
