@@ -27,7 +27,14 @@ var onloadFunc = (sprite, container) => {
 	containerMouseUps = Rx.Observable.fromEvent(container, 'mouseup') 
 
 	spriteMouseDrags = spriteMouseDowns.map(contactPoint => {     // dim 1
-		return containerMouseMoves.takeUntil(containerMouseUps)   // dim 2
+		return containerMouseMoves.
+					takeUntil(containerMouseUps).
+					map(movePoint => { 
+						return {
+							pageX: movePoint.pageX - contactPoint.offsetX,
+							pageY: movePoint.pageY - contactPoint.offsetY
+						}
+					})   // dim 2
 	}).concatAll() // concat and create single dim
 
 	var onNext = dragpoint => {

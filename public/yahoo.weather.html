@@ -1,0 +1,35 @@
+<html>
+
+<head> </head>
+
+<body>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.7/rx.all.js"></script>
+
+<script>
+  var callbackFunction = function(data) {
+    var wind = data.query.results.channel.wind
+    alert(wind.chill);
+  };
+</script>
+
+<script src="https://query.yahooapis.com/v1/public/yql?q=select wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='london, il')&format=json&callback=callbackFunction">
+
+// demo of yahoo weather api
+
+var onloadFunc = function (clickme, stopclickme) {
+	
+}
+
+console.log('hello....ex_031')
+
+window.onload = () => { 
+	console.log('loaded...')
+	onloadFunc()
+}
+
+</script>
+
+</html>
