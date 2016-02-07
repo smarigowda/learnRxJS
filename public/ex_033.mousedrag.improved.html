@@ -1,28 +1,22 @@
 <html>
-
 <head></head>
-
 <body>
 <!-- span should be inside the div, if not then div can not get the mouseup event bubbling -->
-	<div id='container' style="height:200px;text-align:center;border:1px black solid">
+	<div id='spriteContainer' style="height:200px;text-align:center;border:1px black solid">
 		Sprite Container
 		<span id='sprite' style='position: absolute; border: 1px solid black; z-index: 23; left: 47px; top: 27px; background-color: white;'>Sprite</span>
 	</div>	
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.7/rx.all.js"></script>
-
 <script>
-
 // demo of takeuntil
 // listen to button clicks until the stop button is clicked
 
 var onloadFunc = (sprite, container) => {
 
 	spriteMouseDowns = Rx.Observable.fromEvent(sprite, 'mousedown')
-
 	containerMouseMoves = Rx.Observable.fromEvent(container, 'mousemove')
-	
 	// mouseup on sprite bubbles up to sprite container
 	containerMouseUps = Rx.Observable.fromEvent(container, 'mouseup') 
 
@@ -47,13 +41,12 @@ var onloadFunc = (sprite, container) => {
 	
 }
 
-console.log('hello....ex_032')
+console.log('hello....ex_033')
 
 window.onload = () => { 
 	console.log('loaded...')
-	onloadFunc(document.getElementById('sprite'), document.getElementById('container'))
+	onloadFunc(document.getElementById('sprite'), document.getElementById('spriteContainer'))
 }
 
 </script>
-
 </html>
