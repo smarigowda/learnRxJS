@@ -1,7 +1,13 @@
 <html>
 <head></head>
 <body>
-<!-- span should be inside the div, if not then div can not get the mouseup event bubbling -->
+	<style>
+		#sprite {
+			width: 200;
+			height: 50;
+		}
+	</style>
+	<!-- span should be inside the div, if not then div can not get the mouseup event bubbling -->
 	<div id='spriteContainer' style="height:200px;text-align:center;border:1px black solid">
 		Sprite Container
 		<span id='sprite' style='position: absolute; border: 1px solid black; z-index: 23; left: 47px; top: 27px; background-color: white;'>Sprite</span>
@@ -9,6 +15,7 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.7/rx.all.js"></script>
+
 <script>
 // demo of takeuntil
 // listen to button clicks until the stop button is clicked
