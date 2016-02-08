@@ -1,0 +1,25 @@
+<html>
+
+<head></head>
+
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.7/rx.all.js"></script>
+
+	<label>Input: </label><input id='textbox'>
+
+	<script>
+		var textbox = document.getElementById('textbox')
+		
+		// textbox.addEventListener('keypress', (e) => { console.log(e.code) })
+
+		var Observable = Rx.Observable
+
+		var keypresses = Observable.fromEvent(textbox, 'keypress')
+
+		keypresses.forEach(e => { console.log(e) })
+
+	</script>
+</body>
+
+</html>
